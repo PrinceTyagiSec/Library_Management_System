@@ -17,3 +17,5 @@ flask_bcrypt
 flask_sqlalchemy
 flask_migrate
 flask_cors
+logging
+pymysql
