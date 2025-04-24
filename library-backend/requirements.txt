@@ -16,3 +16,4 @@ flask_mail
 flask_bcrypt
 flask_sqlalchemy
 flask_migrate
+flask_cors
