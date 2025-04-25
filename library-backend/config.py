@@ -10,7 +10,7 @@ class Config:
     JWT_COOKIE_SAMESITE = "None"
     JWT_ACCESS_COOKIE_NAME = 'token'
     JWT_COOKIE_CSRF_PROTECT = False
-    SQLALCHEMY_DATABASE_URI = "mysql://avnadmin:AVNS_rtalML_I3A-eo_V2j2A@mysql-383458d2-library-management-system-2.l.aivencloud.com:12483/defaultdb?ssl-mode=REQUIRED"
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     
