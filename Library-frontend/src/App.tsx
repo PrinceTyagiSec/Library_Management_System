@@ -22,7 +22,6 @@ const App = () => {
       {/*AuthProvider wraps the whole app */}
       <Layout>
         {" "}
-        {/*Layout should be inside AuthProvider */}
         <ToastContainer />
         <Routes>
         <Route path="*" element={<NotFound404 />} />
