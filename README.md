@@ -69,7 +69,7 @@ An all-in-one Library Management System created as a capstone project for a Bach
 
 ```bash
 
-cd frontend
+cd library-frontend
 
 npm install
 
@@ -81,10 +81,44 @@ npm run dev
   
 ```python
  
-cd backend
+cd library-backend
  
 pip install -r requirements.txt
  
 flask run
  
 ```
+
+## Environment Configuration (library-backend/.env)
+
+The `library-backend` folder includes a `.env` file required to configure sensitive settings like email functionality. For security reasons, email credentials are left blank and must be filled in manually.
+
+### How to Edit `.env`:
+1. Open the `.env` file located in `library-backend`.
+
+2. Add your email credentials:
+
+```bash
+MAIL_USERNAME=your_email@example.com
+MAIL_PASSWORD=your_email_app_password
+```
+
+**Important Notes:**
+
+- Do not use your personal email password.
+
+- If you're using Gmail:
+
+  - Enable 2-Step Verification: https://myaccount.google.com/security
+
+  - Generate an App Password: https://support.google.com/accounts/answer/185833
+
+3. Save the file and restart the backend (`flask run`).
+
+### Example `.env` File After Configuration
+
+```bash
+MAIL_USERNAME=libraryadmin@example.com
+MAIL_PASSWORD=abcdefg12345678
+```
+
