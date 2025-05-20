@@ -40,19 +40,12 @@ An all-in-one Library Management System created as a capstone project for a Bach
 
 ## Stack of Technologies
 
-| Layer       | Technology          |
-
-|-------------|---------------------|
-
-| Frontend    | React, Tailwind CSS |
-
-| Backend     | Flask (Python)      |
-
-| Database    | MySQL               |
-
-| Authentication | JWT (JSON Web Tokens) |
-
-| Deployment  | Netlify, Render, Aiven.io |
+| Layer          | Technology                  |
+|----------------|-----------------------------|
+| Frontend       | React, Tailwind CSS         |
+| Backend        | Flask (Python)              |
+| Database       | MySQL                       |
+| Authentication | JWT (JSON Web Tokens)       |
 
 --- 
 
@@ -95,6 +88,3 @@ pip install -r requirements.txt
 flask run
  
 ```
-
-
-**Prince Tyagi**
