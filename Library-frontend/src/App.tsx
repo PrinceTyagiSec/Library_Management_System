@@ -5,7 +5,7 @@ import UserDashboard from "./components/UserDashboard";
 import AdminDashboard from "./components/AdminDashboard";
 import "./index.css";
 import ResetPassword from "./components/ResetPassword";
-import RegisterForm from "./components/LoginForm";
+import RegisterForm from "./components/Register";
 import Layout from "@/components/Layout";
 import ForgotPassword from "./components/ForgotPassword";
 import { ToastContainer } from "react-toastify";

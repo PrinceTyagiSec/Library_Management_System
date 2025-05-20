@@ -31,14 +31,15 @@ def register_extensions(app):
     
     frontend_url = os.getenv("FRONTEND_URL")
     if frontend_url and frontend_url.endswith('/'):
-        frontend_url = frontend_url[:-1]  
+        frontend_url = frontend_url[:-1]
     CORS(
         app,
         supports_credentials=True,
-        resources={r"/*": {"origins": frontend_url}}, 
+        resources={r"/*": {"origins": frontend_url}},
         methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allow_headers=["Content-Type", "Authorization"]
     )
+
 
 def register_blueprints(app):
     app.register_blueprint(auth_bp, url_prefix="/api")

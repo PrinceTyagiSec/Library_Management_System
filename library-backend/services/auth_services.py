@@ -28,13 +28,14 @@ def register_user(name, email, password, is_admin=False, send_verification=True)
 
         new_user = User(name=name, email=email, password=hashed_password, is_admin=is_admin)
         db.session.add(new_user)
+        print("1`")
         db.session.commit()
         if send_verification:
+            print("2`")
             resend_verification_email(email)
-
-
         return {"message": "Registration successful! Please check your email for verification."}, 201
     except Exception as e:
+        print("3`")
         return {"error": str(e)}, 500
     
 def login_user(email, password, remember_me):

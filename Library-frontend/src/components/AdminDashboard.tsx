@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import BookManager from "@/components/admin/BookManager";
-import BorrowHistory from "@/components/admin/BorrowHistory";
+import BorrowHistory from "@/components/admin/BorrowHistoryAdmin";
 import UserManager from "@/components/admin/UserManager";
 import AdminProfile from "@/components/admin/AdminProfile";
 import { Book, History, Users, User } from "lucide-react";

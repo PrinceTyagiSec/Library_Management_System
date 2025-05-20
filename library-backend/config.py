@@ -14,7 +14,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     
-    FRONTEND_URL = os.environ.get("FRONTEND_URL", "")
+    BACKEND_URL = os.environ.get("BACKEND_URL", "")
 
     
     MAIL_SERVER = 'smtp.gmail.com'

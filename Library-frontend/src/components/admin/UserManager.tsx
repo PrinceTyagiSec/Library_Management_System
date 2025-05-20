@@ -184,6 +184,14 @@ export default function UserManager() {
           <PlusCircle className="w-5 h-5 mr-2" /> Add User
         </Button>
       </div>
+<UserFormModal
+  open={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  onSubmit={editUser ? handleUpdateUser : handleAddUser}  // Update based on edit mode
+  initialData={editUser || undefined}  // Pass editUser data only if it's in edit mode
+  isEdit={!!editUser}  // If there's an editUser, set isEdit to true
+  isSubmitting={isSubmitting}
+/>
 
 
       <div className="space-y-4">

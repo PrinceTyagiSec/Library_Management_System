@@ -68,19 +68,19 @@ def resend_verification():
 def verify_email():
     token = request.args.get('token')
     email, error = verify_email_token(token)
-    frontend_url = os.getenv("FRONTEND_URL")
+    FRONTEND_URL = os.getenv("FRONTEND_URL")
 
     redirect_map = {
-        "MissingToken": f"{frontend_url}/login?error=MissingToken",
-        "InvalidOrExpiredToken": f"{frontend_url}/login?error=InvalidOrExpiredToken",
-        "TokenExpired": f"{frontend_url}/resend-verification?email={email}&error=TokenExpired",
-        "InvalidToken": f"{frontend_url}/login?error=InvalidToken"
+        "MissingToken": f"{FRONTEND_URL}/login?error=MissingToken",
+        "InvalidOrExpiredToken": f"{FRONTEND_URL}/login?error=InvalidOrExpiredToken",
+        "TokenExpired": f"{FRONTEND_URL}/resend-verification?email={email}&error=TokenExpired",
+        "InvalidToken": f"{FRONTEND_URL}/login?error=InvalidToken"
     }
 
     if error:
-        return redirect(redirect_map.get(error, f"{frontend_url}/login?error=Unknown"))
+        return redirect(redirect_map.get(error, f"{FRONTEND_URL}/login?error=Unknown"))
 
-    return redirect(f"{frontend_url}/login?message=Email verified successfully!&messageType=success")
+    return redirect(f"{FRONTEND_URL}/login?message=Email verified successfully!&messageType=success")
 
 
 @auth_bp.route('/protected', methods=['GET'])

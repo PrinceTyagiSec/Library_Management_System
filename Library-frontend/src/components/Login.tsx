@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Lock, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Lock, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
@@ -25,7 +25,7 @@ const LoginForm = () => {
   const { checkAuthStatus, isAdmin, isAuthenticated } = useAuth();
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("success");
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -52,6 +52,8 @@ const LoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await fetch(`${apiUrl}/api/login`, {
@@ -87,8 +89,11 @@ const LoginForm = () => {
       toast.error("An error occurred. Please check your connection.", {
         icon: <AlertCircle />,
       });
+    } finally {
+      setLoading(false); // Set loading back to false once the request completes
     }
   };
+
   useEffect(() => {
     if (isAuthenticated) {
       navigate(isAdmin ? "/admin/dashboard" : "/dashboard");
@@ -160,13 +165,18 @@ const LoginForm = () => {
                 Forgot Password?
               </Link>
             </div>
-
             <Button
-              type="submit"
-              className="w-full h-12 bg-blue-600 hover:bg-blue-500 text-white"
-            >
-              Login
-            </Button>
+  type="submit"
+  className="w-full h-12 bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center"
+  disabled={loading} // Add this to disable the button during loading
+>
+  {loading ? (
+    <Loader2 className="h-5 w-5 animate-spin" />
+  ) : (
+    "Login"
+  )}
+</Button>
+
             <hr className="border-gray-300 opacity-30 my-6" />
 
             <div className="text-center mt-8">
@@ -186,5 +196,4 @@ const LoginForm = () => {
     </motion.div>
   );
 };
-
 export default LoginForm;

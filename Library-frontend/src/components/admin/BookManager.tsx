@@ -32,7 +32,7 @@ export default function BookManager() {
   const [searchBy, setSearchBy] = useState("title");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const API_URL = `${import.meta.env.VITE_API_URL}/api/books/available`;
+  const API_URL = `${import.meta.env.VITE_API_URL}/api/books`;
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -71,6 +71,7 @@ export default function BookManager() {
   }, [isAuthenticated, searchQuery, filterStatus, searchBy, currentPage]);
 
 
+  console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
 
   const handleAddBook = async (bookData: { title: string; author: string; available: boolean }) => {
     try {
