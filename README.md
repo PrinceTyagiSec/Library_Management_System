@@ -89,6 +89,8 @@ flask run
  
 ```
 
+---
+
 ## Environment Configuration (library-backend/.env)
 
 The `library-backend` folder includes a `.env` file required to configure sensitive settings like email functionality. For security reasons, email credentials are left blank and must be filled in manually.
@@ -122,3 +124,4 @@ MAIL_USERNAME=libraryadmin@example.com
 MAIL_PASSWORD=abcdefg12345678
 ```
 
+---
